@@ -220,7 +220,7 @@ The output contains *k* lines with two columns. The first column is the same as 
 
 Finally, if option `-f 4` is given, i.e.,
 
-    ./gHSS test.inp -r "1 1 1" -k 5 -f 4
+    ./gHSS examples/test.inp -r "1 1 1" -k 5 -f 4
 
 The corresponding output is:
 
