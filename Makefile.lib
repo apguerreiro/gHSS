@@ -1,0 +1,19 @@
+# -*- Makefile-gmake -*-
+VARIANT    ?= 4
+
+GHSS_SRCS    = gHSS.c
+GHSS_HDRS    = gHSS.h
+GHSS_OBJS    = $(GHSS_SRCS:.c=.o)
+GHSS_LIB     = gHSS.a
+
+$(GHSS_LIB): $(GHSS_OBJS)
+	$(QUIET_AR)$(RM) $@ && $(AR) rcs $@ $^
+
+## Augment CFLAGS for gGSS.[co] objects
+# gHSS.o: CPPFLAGS += -g -D VARIANT=$(VARIANT)
+gHSS.o: CPPFLAGS += -D VARIANT=$(VARIANT) #-fPIC
+# timer.o: CPPFLAGS += -g -D VARIANT=$(VARIANT)
+timer.o: CPPFLAGS += -D VARIANT=$(VARIANT) #-fPIC
+
+## Dependencies:
+$(GHSS_OBJS): $(GHSS_HDRS)
